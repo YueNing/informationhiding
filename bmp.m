@@ -241,6 +241,7 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global im  %使用全局变量im
 global filenamebmp
+global pathnamebmp
 [filenamebmp,pathnamebmp]=...
     uigetfile({'*.bmp'},'选择图片');
 %合成路径+文件名
@@ -330,8 +331,10 @@ function pushbutton7_Callback(hObject, eventdata, handles)
 global im
 global filenametxt
 global filenamebmp
+global pathnamebmp
 h=waitbar(0,'请稍等，合成中...');
-[steco,lento]=lsbhide(filenamebmp,filenametxt,'out.bmp');
+filebmp = [pathnamebmp, filenamebmp];
+[steco,lento]=lsbhide(filebmp,filenametxt,'out.bmp');
  waitbar(1,h,'已完成');
  pause(1);
  delete(h);

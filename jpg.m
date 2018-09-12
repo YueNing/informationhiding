@@ -350,7 +350,7 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 global count
     %count=str2num(get(handles.edit4,'string'));
      h=waitbar(0,'请稍等，提取中...');
-    extractdctadv('output/DCTout.jpg','output/secret.txt',1988,count);
+    extractdctadv('output/DCTout.jpg','secret.txt',1988,count);
     waitbar(1,h,'提取成功');
     pause(1);
     delete(h);
@@ -374,6 +374,7 @@ set(handles.edit5,'string','');
 set(handles.edit6,'string','');
 fclose('all');
 delete output/DCTout.jpg;
+delete secret.txt;
 delete output/secret.txt;
 clc
 clear
