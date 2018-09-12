@@ -181,7 +181,7 @@ switch test
     case '.txt'
        str=[pathname filename];
        set(handles.edit2,'string',str);
-        fin=fopen(filename,'r');
+        fin=fopen(str,'r');
         str1=fgetl(fin);
         set(handles.edit6,'string',str1);
        otherwise
@@ -356,7 +356,7 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 global count
     %count=str2num(get(handles.edit4,'string'));
      h=waitbar(0,'请稍等，提取中...');
-    extractdctadv('output/DCTout.jpg','secret.txt',1988,count);
+    extractdctadv('output/DCTout.jpg','output/get/jpg/secret.txt',1988,count);
     waitbar(1,h,'提取成功');
     pause(1);
     delete(h);
@@ -380,8 +380,7 @@ set(handles.edit5,'string','');
 set(handles.edit6,'string','');
 fclose('all');
 delete output/DCTout.jpg;
-delete secret.txt;
-delete output/secret.txt;
+delete output/get/jpg/secret.txt;
 clc
 clear
 

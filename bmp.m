@@ -169,6 +169,8 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% use this button to get the lsbget secrect.file simple wort show file
+% secret file in the software
 [filename pathname]=uigetfile({'*.txt','txt files ';'*.*',' alles file'},'choose a file ');
 L=length(filename);
 if L<5
@@ -352,7 +354,7 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 number=str2num(get(handles.edit4,'string'));   
     h=waitbar(0,'请稍等，提取中...');
-    lsbget('output/out.bmp',number,'secret.txt');
+    lsbget('output/out.bmp',number,'output/get/bmp/secret.txt');
     waitbar(1,h,'提取成功');
     pause(1);
     delete(h);
@@ -374,7 +376,7 @@ set(handles.edit5,'string','');
 set(handles.edit6,'string','');
 fclose('all');
 delete output/out.bmp;
-delete secret.txt;
+delete output/get/bmp/secret.txt;
 clc
 clear
 
