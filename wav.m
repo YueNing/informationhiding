@@ -108,10 +108,11 @@ imshow(filenamebmpw);
 function pushbutton3_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+% handles    structure with handles and user data (see GUIDATA) 
+% select wav file to play
 [filenamewav pathnamewav]=uigetfile('*.wav','选择一个音频播放');
-[y,Fs,nbits]=wavread(filenamewav);
-wavplay(y,Fs,'async');
+[y,Fs]=audioread(filenamewav);
+sound(y,Fs);
 
 
 % --- Executes on button press in pushbutton4.
