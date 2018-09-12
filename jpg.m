@@ -241,6 +241,7 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global im  %使用全局变量im
 global filenamejpg
+global pathnamejpg
 [filenamejpg,pathnamejpg]=...
     uigetfile({'*.jpg';'*.jpeg'},'选择图片');
 %合成路径+文件名
@@ -330,10 +331,12 @@ function pushbutton7_Callback(hObject, eventdata, handles)
 global im
 global filenametxt
 global filenamejpg
+global pathnamejpg
 global count
 h=waitbar(0,'请稍等，合成中...');
 %[steco,lento]=lsbhide(filenamebmp,filenametxt,'out.bmp');
-[count,msg,result]=hidedctadv(filenamejpg,'output/DCTout.jpg',filenametxt,1988,1);
+filejpg = [pathnamejpg, filenamejpg];
+[count,msg,result]=hidedctadv(filejpg,'output/DCTout.jpg',filenametxt,1988,1);
 waitbar(1,h,'已完成');
 pause(1);
 delete(h);
