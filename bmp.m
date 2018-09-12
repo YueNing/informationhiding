@@ -107,7 +107,7 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global filenametxt
-
+global pathnametxt
 [filenametxt pathnametxt]=uigetfile({'*.txt','txt files ';'*.*',' alles file'},'choose a file ');
 L=length(filenametxt);
 if L<5
@@ -330,16 +330,18 @@ function pushbutton7_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA
 global im
 global filenametxt
+global pathnametxt
 global filenamebmp
 global pathnamebmp
 h=waitbar(0,'请稍等，合成中...');
 filebmp = [pathnamebmp, filenamebmp];
-[steco,lento]=lsbhide(filebmp,filenametxt,'out.bmp');
+filetx = [pathnametxt, filenametxt];
+[steco,lento]=lsbhide(filebmp,filetx,'output/out.bmp');
  waitbar(1,h,'已完成');
  pause(1);
  delete(h);
 axes(handles.axes2);
-im2=imread('out.bmp');
+im2=imread('output/out.bmp');
 imshow(im2);
 
 
@@ -350,7 +352,7 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 number=str2num(get(handles.edit4,'string'));   
     h=waitbar(0,'请稍等，提取中...');
-    lsbget('out.bmp',number,'secret.txt');
+    lsbget('output/out.bmp',number,'secret.txt');
     waitbar(1,h,'提取成功');
     pause(1);
     delete(h);
@@ -371,7 +373,7 @@ set(handles.edit4,'string','');
 set(handles.edit5,'string','');
 set(handles.edit6,'string','');
 fclose('all');
-delete out.bmp;
+delete output/out.bmp;
 delete secret.txt;
 clc
 clear

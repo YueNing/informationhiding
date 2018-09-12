@@ -107,6 +107,7 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global filenametxt
+global pathnametxt
 
 [filenametxt pathnametxt]=uigetfile({'*.txt','txt files ';'*.*',' alles file'},'choose a file ');
 L=length(filenametxt);
@@ -332,11 +333,13 @@ global im
 global filenametxt
 global filenamejpg
 global pathnamejpg
+global pathnametxt
 global count
 h=waitbar(0,'请稍等，合成中...');
 %[steco,lento]=lsbhide(filenamebmp,filenametxt,'out.bmp');
 filejpg = [pathnamejpg, filenamejpg];
-[count,msg,result]=hidedctadv(filejpg,'output/DCTout.jpg',filenametxt,1988,1);
+filetxt = [pathnametxt, filenametxt];
+[count,msg,result]=hidedctadv(filejpg,'output/DCTout.jpg',filetxt,1988,1);
 waitbar(1,h,'已完成');
 pause(1);
 delete(h);
