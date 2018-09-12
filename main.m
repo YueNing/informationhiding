@@ -25,6 +25,7 @@ function varargout = main(varargin)
 % Last Modified by GUIDE v2.5 25-Dec-2014 10:42:15
 
 % Begin initialization code - DO NOT EDIT
+addpath(genpath(pwd));
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
                    'gui_Singleton',  gui_Singleton, ...
