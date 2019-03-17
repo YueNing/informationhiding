@@ -155,8 +155,8 @@ function pushbutton7_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 fclose('all');
-delete marked.wav;
-delete markedbupt.bmp;
+delete output/hidden/wav/marked.wav;
+delete output/get/wav/markedbupt.bmp;
 im=imread('new.bmp');
 axes(handles.axes1);
 imshow(im);
@@ -182,7 +182,7 @@ delete(h);
 im=imread('bupt.bmp');
 axes(handles.axes1);
 imshow(im);
-im2=imread('markedbupt.bmp');
+im2=imread('output/get/wav/markedbupt.bmp');
 axes(handles.axes3);
 imshow(im2);
 % --- Executes on button press in pushbutton9.

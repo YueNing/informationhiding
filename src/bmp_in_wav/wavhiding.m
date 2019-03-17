@@ -20,7 +20,7 @@ end
 figure;
 subplot(2,1,1);plot(oa(1:1000));
 subplot(2,1,2);plot(markedaudio(1:1000));
-fid=fopen('marked.wav','wb');
+fid=fopen('output/hidden/wav/marked.wav','wb');
 fwrite(fid,markedaudio,'uchar');
 fclose(fid);
 

@@ -1,7 +1,7 @@
-function []=wavextract();
+function []=wavextract()
 marklength=5394;%提取的水印图像大小，已知
 row=58;                    %row是水印图像行数，已知
-fid=fopen('marked.wav','r');
+fid=fopen('output/hidden/wav/marked.wav','r');
 oa=fread(fid,inf,'uint8');
 status=fseek(fid,44,'bof');
 a=fread(fid,marklength,'uint8');
@@ -10,7 +10,7 @@ for i=1:marklength
 end
 w1=w1';
 m=Vector2Matrix(w1,row);
-imwrite(m,'markedbupt.bmp','bmp');
+imwrite(m,'output/get/wav/markedbupt.bmp','bmp');
 % figure;
 % imshow('markedbupt.bmp');title('extracted watermark');
 %归一化相关系数

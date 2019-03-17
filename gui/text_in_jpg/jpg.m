@@ -339,12 +339,12 @@ h=waitbar(0,'请稍等，合成中...');
 %[steco,lento]=lsbhide(filenamebmp,filenametxt,'out.bmp');
 filejpg = [pathnamejpg, filenamejpg];
 filetxt = [pathnametxt, filenametxt];
-[count,msg,result]=hidedctadv(filejpg,'output/DCTout.jpg',filetxt,1988,1);
+[count,msg,result]=hidedctadv(filejpg,'output/hidden/jpg/DCTout.jpg',filetxt,1988,1);
 waitbar(1,h,'已完成');
 pause(1);
 delete(h);
 axes(handles.axes2);
-im2=imread('output/DCTout.jpg');
+im2=imread('output/hidden/jpg/DCTout.jpg');
 imshow(im2);
 
 
@@ -356,7 +356,7 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 global count
     %count=str2num(get(handles.edit4,'string'));
      h=waitbar(0,'请稍等，提取中...');
-    extractdctadv('output/DCTout.jpg','output/get/jpg/secret.txt',1988,count);
+    extractdctadv('output/hidden/jpg/DCTout.jpg','output/get/jpg/secret.txt',1988,count);
     waitbar(1,h,'提取成功');
     pause(1);
     delete(h);
@@ -379,7 +379,7 @@ set(handles.edit2,'string','');
 set(handles.edit5,'string','');
 set(handles.edit6,'string','');
 fclose('all');
-delete output/DCTout.jpg;
+delete output/hidden/jpg/DCTout.jpg;
 delete output/get/jpg/secret.txt;
 clc
 clear

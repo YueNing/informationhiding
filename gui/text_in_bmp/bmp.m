@@ -338,12 +338,12 @@ global pathnamebmp
 h=waitbar(0,'请稍等，合成中...');
 filebmp = [pathnamebmp, filenamebmp];
 filetx = [pathnametxt, filenametxt];
-[steco,lento]=lsbhide(filebmp,filetx,'output/out.bmp');
+[steco,lento]=lsbhide(filebmp,filetx,'output/hidden/bmp/out.bmp');
  waitbar(1,h,'已完成');
  pause(1);
  delete(h);
 axes(handles.axes2);
-im2=imread('output/out.bmp');
+im2=imread('output/hidden/bmp/out.bmp');
 imshow(im2);
 
 
@@ -354,7 +354,7 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 number=str2num(get(handles.edit4,'string'));   
     h=waitbar(0,'请稍等，提取中...');
-    lsbget('output/out.bmp',number,'output/get/bmp/secret.txt');
+    lsbget('output/hidden/bmp/out.bmp',number,'output/get/bmp/secret.txt');
     waitbar(1,h,'提取成功');
     pause(1);
     delete(h);
@@ -375,7 +375,7 @@ set(handles.edit4,'string','');
 set(handles.edit5,'string','');
 set(handles.edit6,'string','');
 fclose('all');
-delete output/out.bmp;
+delete output/hidden/bmp/out.bmp;
 delete output/get/bmp/secret.txt;
 clc
 clear
