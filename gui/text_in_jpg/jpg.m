@@ -55,7 +55,7 @@ function jpg_OpeningFcn(hObject, eventdata, handles, varargin)
 % Choose default command line output for jpg\
 global imn
 handles.output = hObject;
-imn=imread('new.bmp');
+imn=imread('resources/new.bmp');
 axes(handles.axes1);
 imshow(imn);
 axes(handles.axes2);
@@ -108,8 +108,11 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global filenametxt
 global pathnametxt
-
+pathnow=pwd;
+path='resources/hide';
+cd (path);
 [filenametxt pathnametxt]=uigetfile({'*.txt','txt files ';'*.*',' alles file'},'choose a file ');
+cd (pathnow);
 L=length(filenametxt);
 if L<5
    msgbox('Wrong File','File Open Error');
@@ -170,7 +173,11 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-[filename pathname]=uigetfile({'*.txt','txt files ';'*.*',' alles file'},'choose a file ');
+pathnow=pwd;
+path='output/get/jpg';
+cd (path);
+[filename pathname]=uigetfile('secret.txt','choose a file ');
+cd (pathnow);
 L=length(filename);
 if L<5
    msgbox('Wrong File','File Open Error');
@@ -243,8 +250,12 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 global im  %使用全局变量im
 global filenamejpg
 global pathnamejpg
+pathnow=pwd;
+path='resources/carrier';
+cd (path);
 [filenamejpg,pathnamejpg]=...
     uigetfile({'*.jpg';'*.jpeg'},'选择图片');
+cd (pathnow);
 %合成路径+文件名
 str=[pathnamejpg filenamejpg];
 %读取图片

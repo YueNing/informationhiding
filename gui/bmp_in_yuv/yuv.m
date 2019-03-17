@@ -54,7 +54,7 @@ function yuv_OpeningFcn(hObject, eventdata, handles, varargin)
 
 % Choose default command line output for yuv
 handles.output = hObject;
-im=imread('new.bmp');
+im=imread('resources/new.bmp');
 axes(handles.axes1);
 imshow(im);
 axes(handles.axes4);
@@ -83,7 +83,11 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global filenamebmpy
+pathnow=pwd;
+path='resources/hide';
+cd (path);
 [filenamebmpy pathnamebmpy] = uigetfile('YD(18_22).bmp','原始水印图像');
+cd (pathnow);
 im=imread(filenamebmpy);
 axes(handles.axes1);
 imshow(im);
@@ -96,7 +100,11 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 global FILENAME
 global PATHNAME
 global FILEINDEX
+pathnow=pwd;
+path='resources/carrier';
+cd (path);
 [FILENAME,PATHNAME,FILEINDEX]=uigetfile('suzie.yuv','选择一个yuv文件');
+cd (pathnow);
 
 
 % --- Executes on button press in pushbutton3.
@@ -117,13 +125,13 @@ function pushbutton4_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 fclose('all');
-delete suzie_w.yuv;
-delete keysuzie.yuv;
-delete wmk_keyframe_suzie.yuv;
-delete 00020.bmp;
-delete 00000020.bmp;
+delete output/hidden/yuv/suzie_w.yuv;
+delete output/hidden/yuv/keysuzie.yuv;
+delete output/hidden/yuv/wmk_keyframe_suzie.yuv;
+delete output/hidden/yuv/00020.bmp;
+delete output/hidden/yuv/00000020.bmp;
 fclose('all');
-im=imread('new.bmp');
+im=imread('resources/new.bmp');
 axes(handles.axes1);
 imshow(im);
 axes(handles.axes4);
@@ -163,8 +171,12 @@ function pushbutton6_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton6 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global filenamebmpy
-[FILENAME,PATHNAME,FILEINDEX]=uigetfile('suziew.yuv','选择含有水印的yuv文件');
+global filenamebmpy;
+pathnow=pwd;
+path='output/hidden/yuv';
+cd (path);
+[FILENAME,PATHNAME,FILEINDEX]=uigetfile('suzie_w.yuv','选择含有水印的yuv文件');
+cd (pathnow);
 im=imread(filenamebmpy);
 axes(handles.axes1);
 imshow(im);

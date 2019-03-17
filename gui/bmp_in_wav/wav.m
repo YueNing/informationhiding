@@ -54,7 +54,7 @@ function wav_OpeningFcn(hObject, eventdata, handles, varargin)
 
 % Choose default command line output for wav
 handles.output = hObject;
-im=imread('new.bmp');
+im=imread('resources/new.bmp');
 axes(handles.axes1);
 imshow(im);
 axes(handles.axes3);
@@ -87,7 +87,11 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 global filenamewav
 global oa
 global n
+pathnow=pwd;
+path='resources/carrier';
+cd (path);
 [filenamewav pathnamewav]=uigetfile('*.wav','选择一个wav文件');
+cd (pathnow);
 fid=fopen(filenamewav,'rb');
 %[file,path] = uigetfile('2.wav','Open wav file');
 oa=fread(fid,inf,'uchar');
@@ -101,7 +105,11 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global filenamebmpw
-[filenamebmpw pathnamebmpw]=uigetfile('*.bmp','选择一个水印图片');
+pathnow=pwd;
+path='resources/hide';
+cd (path);
+[filenamebmpw pathnamebmpw]=uigetfile('bupt.bmp','选择一个水印图片');
+cd (pathnow);
 axes(handles.axes1);
 imshow(filenamebmpw);
 % --- Executes on button press in pushbutton3.
@@ -110,7 +118,11 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA) 
 % select wav file to play
+pathnow=pwd;
+path='resources/carrier';
+cd (path);
 [filenamewav pathnamewav]=uigetfile('*.wav','选择一个音频播放');
+cd (pathnow);
 [y,Fs]=audioread(filenamewav);
 sound(y,Fs);
 
@@ -157,7 +169,7 @@ function pushbutton7_Callback(hObject, eventdata, handles)
 fclose('all');
 delete output/hidden/wav/marked.wav;
 delete output/get/wav/markedbupt.bmp;
-im=imread('new.bmp');
+im=imread('resources/new.bmp');
 axes(handles.axes1);
 imshow(im);
 axes(handles.axes3);

@@ -25,7 +25,7 @@ end
 
 
 %只含关键帧的视频文件
-fileId = fopen('keysuzie.yuv','wb');%
+fileId = fopen('output/hidden/yuv/keysuzie.yuv','wb');%
 for i=1:num
 fwrite(fileId,Y_keyframe(:,:,i)' , 'uchar');
 fwrite(fileId,U_keyframe(:,:,i)' , 'uchar');
@@ -70,8 +70,8 @@ for n=1:group_num
     Y_WMK_keyframe(:,:,1+(i-1)*p:i*p)=Y_key_group(:,:,:,n);
     i=i+1;
 end
-    
-fileId = fopen('WMK_keyframe_suzie.yuv','wb');%
+
+fileId = fopen('output/hidden/yuv/WMK_keyframe_suzie.yuv','wb');%
 for i=1:num
 fwrite(fileId,Y_WMK_keyframe(:,:,i)' , 'uchar');
 fwrite(fileId,U_keyframe(:,:,i)' , 'uchar');
@@ -92,7 +92,7 @@ i=i+p-1;
 
     
 %写含有水印的视频文件
-fileId = fopen('suzie_w.yuv','wb');%
+fileId = fopen('output/hidden/yuv/suzie_w.yuv','wb');%
 for i=1:100
 fwrite(fileId,y(:,:,i)' , 'uchar');
 fwrite(fileId,u(:,:,i)' , 'uchar');

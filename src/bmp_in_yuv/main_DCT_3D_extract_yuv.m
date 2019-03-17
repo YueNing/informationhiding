@@ -37,7 +37,11 @@ extractedimg=watermarkimgs/(group_num);%水印取平均
 
 
 % [file,path] = uigetfile('*.jpg','原始水印图像');
+pathnow=pwd;
+path='resources/hide';
+cd (path);
 [file,path] = uigetfile('YD(18_22).bmp','原始水印图像');
+cd (pathnow);
 inputimg = strcat(path,file);
 img = imread( inputimg );
 % img=rgb2gray(img);
