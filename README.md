@@ -1,4 +1,4 @@
-# informationhidding
+# informationhiding
 
 ### matlab实现的信息隐藏
 
