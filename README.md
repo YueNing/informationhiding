@@ -12,6 +12,11 @@
 
 - [Hiding Images in Plain Sight: Deep Steganography ][1]
 
+#### Hiding information Inside HTML
+
+- [Embedding Secret Data in Html Web Page][4]
+- [Hiding Inside HTML and Other Source Codes][5]
+
 ### Theory and Survey (理论与综述)
 
 ### Code (代码实现)
@@ -36,5 +41,7 @@
 [1]:https://papers.nips.cc/paper/6802-hiding-images-in-plain-sight-deep-steganography
 [2]:https://github.com/harveyslash/Deep-Steganography
 [3]:https://github.com/muziyongshixin/pytorch-Deep-Steganography
+[4]:https://www.researchgate.net/publication/45909979_Embedding_Secret_Data_in_HTML_Web_Page
+[5]:https://www.researchgate.net/publication/45906844_Hiding_Inside_HTML_and_Other_Source_Codes
 
 
