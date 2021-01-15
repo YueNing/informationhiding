@@ -20,7 +20,7 @@
 - [hidedctadv.m](src/text_in_jpg/hidedctadv.m) 和 [extractdctadv.m](src/text_in_jpg/extractdctadv.m) 是jpg为载体的信息隐藏和提取函数
 - [jpg.m](gui/text_in_jpg/jpg.m) 和 [jpg.fig](gui/text_in_jpg/) 为载体为jpg的信息隐藏界面
 - [randinterval.m](src/text_in_jpg/randinterval.m) 是JPG为载体的DCT信息隐藏的随机函数
-- [hallo.jpg](resouces/carrier/hallo.jpg) jpg 图片载体
+- [hallo.jpg](resources/carrier/hallo.jpg) jpg 图片载体
 - [1.txt](resources/hide/1.txt)为jpg为载体的隐藏文本
 
 ### BMP_IN_WAV
