@@ -4,7 +4,7 @@ encrypting data in html
 
 from bs4 import BeautifulSoup
 
-class Truing:
+class Turing:
 
     def __init__(self, src_path, out_path):
         self.src_path = src_path

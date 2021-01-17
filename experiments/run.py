@@ -1,10 +1,10 @@
 
-from ..src.core import Truing
+from ..src.core import Turing
 
 def main(src: str, output:str):
     src_path = "/home/nauen/informationhiding/resources/test.html"
     out_path = "/home/nauen/informationhiding/result/encrypt.html"
-    turing = Truing(src_path, out_path)
+    turing = Turing(src_path, out_path)
     print("Beginning encrypt....")
     turing.encrypt("/home/nauen/informationhiding/encrypt/info")
     print(f"Finishing encrypt, saved in {out_path}....")
